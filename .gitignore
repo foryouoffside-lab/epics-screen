@@ -4,8 +4,8 @@ out
 .env
 .env.local
 .DS_Store
-public/uploads/wallpapers/*
-public/uploads/thumbs/*
+# public/uploads/wallpapers/*
+# public/uploads/thumbs/*
 !public/uploads/wallpapers/.gitkeep
 !public/uploads/thumbs/.gitkeep
 # data/wallpapers.json
