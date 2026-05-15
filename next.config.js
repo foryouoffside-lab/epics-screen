@@ -3,9 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  turbopack: {
-    root: process.cwd(),
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -13,6 +10,7 @@ const nextConfig = {
     ],
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536, 1920, 2560],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true,
   },
   async headers() {
     return [
