@@ -2,6 +2,7 @@
 // Reads the uploaded image, generates an optimized WebP thumbnail,
 // captures dimensions, and produces a low-resolution blur placeholder
 // suitable for Next.js <Image placeholder="blur"> usage.
+// SECURITY: Strips all EXIF/metadata from uploaded images.
 
 import sharp from "sharp";
 import fs from "fs/promises";
@@ -32,20 +33,21 @@ export async function processUploadedImage({ tempPath, baseName }) {
   const thumbPath = path.join(THUMBS_DIR, thumbName);
   const blurPath = path.join(THUMBS_DIR, blurName);
 
-  // Original optimized save (re-encode for stripping metadata + compression).
+  // Original optimized save — strips all metadata for security.
   await sharp(buffer)
     .rotate()
+    .withMetadata({}) // strip EXIF/GPS/camera data
     .toFormat(safeExt === "png" ? "png" : safeExt === "webp" ? "webp" : "jpeg", { quality: 90 })
     .toFile(finalPath);
 
-  // Thumbnail (max 800px wide WebP).
+  // Thumbnail (max 800px wide WebP, no metadata).
   await sharp(buffer)
     .rotate()
     .resize({ width: 800, withoutEnlargement: true })
     .webp({ quality: 80 })
     .toFile(thumbPath);
 
-  // Blur placeholder (32px wide).
+  // Blur placeholder (32px wide, no metadata).
   const blurBuf = await sharp(buffer)
     .rotate()
     .resize({ width: 32 })

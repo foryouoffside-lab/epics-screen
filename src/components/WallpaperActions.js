@@ -67,14 +67,18 @@ export default function WallpaperActions({ wallpaper }) {
     let shared = false;
     if (navigator.share) {
       try {
-        await navigator.share({ title, text: `Check out "${title}" on Epic's Screen`, url });
+        await navigator.share({ 
+          title: `${title} — Free HD & 4K Warrior Wallpaper`, 
+          text: `Download "${title}" — free HD & 4K warrior wallpaper for phone & desktop on Epic's Screen`, 
+          url 
+        });
         shared = true;
       } catch {}
     }
     if (!shared) {
       try {
         await navigator.clipboard.writeText(url);
-        alert("Link copied to clipboard!");
+        alert("Link copied! Share this warrior wallpaper with friends.");
         shared = true;
       } catch {}
     }
@@ -98,25 +102,25 @@ export default function WallpaperActions({ wallpaper }) {
           className={`btn btn--like ${liked ? "active" : ""}`}
           onClick={handleLike}
           aria-pressed={liked}
-          aria-label={liked ? "Unlike wallpaper" : "Like wallpaper"}
+          aria-label={liked ? "Unlike this warrior wallpaper" : "Like this warrior wallpaper"}
         >
-          <svg viewBox="0 0 24 24" fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+          <svg viewBox="0 0 24 24" fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
           <span>{liked ? "Liked" : "Like"}</span>
         </button>
 
-        <button type="button" className="btn btn--primary" onClick={handleDownload} aria-label="Download wallpaper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <button type="button" className="btn btn--primary" onClick={handleDownload} aria-label="Download free HD warrior wallpaper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <polyline points="7 10 12 15 17 10"/>
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
-          Download
+          Download HD
         </button>
 
-        <button type="button" className="btn" onClick={handleShare} aria-label="Share wallpaper">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <button type="button" className="btn" onClick={handleShare} aria-label="Share this warrior wallpaper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>

@@ -11,7 +11,7 @@ export function buildMetadata({
   type = "website",
   keywords = []
 }) {
-  const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
+  const fullTitle = title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} — Free HD & 4K Warrior Wallpapers`;
   const desc = description || siteConfig.description;
   const url = absoluteUrl(path);
   const ogImage = image || absoluteUrl(siteConfig.ogImage);
@@ -53,6 +53,7 @@ export function websiteJsonLd() {
     name: siteConfig.name,
     url: siteConfig.url,
     description: siteConfig.description,
+    inLanguage: "en",
     potentialAction: {
       "@type": "SearchAction",
       target: `${siteConfig.url}/?q={search_term_string}`,
@@ -67,15 +68,20 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: absoluteUrl("/logo.png")
+    description: siteConfig.description,
+    logo: absoluteUrl("/favicon.svg"),
+    sameAs: [
+      "https://pin.it/7dViRFmkL"
+    ]
   };
 }
 
 export function imageGalleryJsonLd(wallpapers) {
+  if (!wallpapers || wallpapers.length === 0) return null;
   return {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    name: siteConfig.name,
+    name: `${siteConfig.name} — Warrior Wallpaper Gallery`,
     description: siteConfig.description,
     url: siteConfig.url,
     image: wallpapers.slice(0, 24).map((w) => ({
@@ -83,24 +89,28 @@ export function imageGalleryJsonLd(wallpapers) {
       contentUrl: absoluteUrl(w.imagePath),
       thumbnailUrl: absoluteUrl(w.thumbPath),
       name: w.title,
-      description: w.description
+      description: w.description || `Free HD & 4K ${w.title} wallpaper download`,
+      uploadDate: new Date(w.createdAt).toISOString(),
+      width: w.width,
+      height: w.height
     }))
   };
 }
 
 export function wallpaperJsonLd(w) {
+  if (!w) return null;
   return {
     "@context": "https://schema.org",
     "@type": "ImageObject",
     name: w.title,
-    description: w.description,
+    description: w.description || `Download ${w.title} — Free HD & 4K warrior wallpaper for phone and desktop`,
     contentUrl: absoluteUrl(w.imagePath),
     thumbnailUrl: absoluteUrl(w.thumbPath),
     uploadDate: new Date(w.createdAt).toISOString(),
     width: w.width,
     height: w.height,
     encodingFormat: w.mimeType,
-    keywords: (w.tags || []).join(", "),
+    keywords: (w.tags || []).join(", ") + ", warrior wallpaper, HD wallpaper, 4K wallpaper",
     interactionStatistic: [
       {
         "@type": "InteractionCounter",
@@ -122,6 +132,7 @@ export function wallpaperJsonLd(w) {
 }
 
 export function breadcrumbJsonLd(items) {
+  if (!items || items.length === 0) return null;
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

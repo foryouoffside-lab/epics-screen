@@ -1,11 +1,13 @@
 // Lightweight JSON-file database for wallpaper metadata.
-// Avoids requiring the user to provision an external database while
-// still providing persistent storage, atomic writes and simple queries.
+// Local: stores in /data folder. Vercel: uses /tmp for writes.
 
 import fs from "fs/promises";
 import path from "path";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const isVercel = process.env.VERCEL === "1";
+const DATA_DIR = isVercel 
+  ? path.join("/tmp", "data") 
+  : path.join(process.cwd(), "data");
 const DB_FILE = path.join(DATA_DIR, "wallpapers.json");
 
 async function ensureFile() {
@@ -42,7 +44,6 @@ export async function getAllWallpapers() {
 
 export async function getRankedWallpapers(limit = 24) {
   const all = await getAllWallpapers();
-  // Ranking score: weighted likes, downloads, shares + freshness decay.
   const now = Date.now();
   const scored = all.map((w) => {
     const ageDays = (now - w.createdAt) / (1000 * 60 * 60 * 24);

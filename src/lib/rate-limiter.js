@@ -1,4 +1,7 @@
-// Simple in-memory rate limiter
+// Simple in-memory rate limiter for API endpoints.
+// Limits repeated requests from the same IP within a time window.
+// Memory is cleared on server restart (acceptable for this use case).
+
 const rateMap = new Map();
 
 export function rateLimit(ip, action, maxRequests = 10, windowMs = 60000) {
@@ -19,10 +22,12 @@ export function rateLimit(ip, action, maxRequests = 10, windowMs = 60000) {
   return { allowed: true, remaining: maxRequests - record.count };
 }
 
-// Clean up old entries every 5 minutes
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, record] of rateMap) {
-    if (now - record.start > 300000) rateMap.delete(key);
-  }
-}, 300000);
+// Clean up stale entries every 5 minutes (server-side only, not during build).
+if (typeof window === "undefined") {
+  setInterval(() => {
+    const now = Date.now();
+    for (const [key, record] of rateMap) {
+      if (now - record.start > 300000) rateMap.delete(key);
+    }
+  }, 300000);
+}

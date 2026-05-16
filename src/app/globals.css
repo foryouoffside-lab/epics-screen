@@ -1,4 +1,4 @@
-/* Epic's Screen â€” global styles
+/* Epic's Screen Ã¢â‚¬â€ global styles
  * Design system: dark, premium, gallery-first aesthetic.
  */
 
@@ -387,3 +387,8 @@ button {
   color: var(--text-dim);
 }
 .empty h2 { color: var(--text); }
+
+/* SPINNER */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

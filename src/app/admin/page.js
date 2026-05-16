@@ -1,13 +1,18 @@
 import { buildMetadata } from "@/lib/seo";
 import AdminUploader from "./AdminUploader";
 
-export const metadata = buildMetadata({
-  title: "Admin · Upload Wallpaper",
-  description: "Admin upload page for Epic's Screen.",
-  path: "/admin"
-});
+export const metadata = {
+  ...buildMetadata({
+    title: "Admin · Upload Wallpaper",
+    description: "Admin upload page for Epic's Screen.",
+    path: "/admin"
+  }),
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
-// Stop search engines from indexing the admin page.
 export const dynamic = "force-dynamic";
 
 export default function AdminPage() {
