@@ -1,6 +1,69 @@
 {
   "wallpapers": [
     {
+      "id": "cPcq3WlGrDy-",
+      "slug": "the-stream-of-the-blue-moon-xdglth",
+      "title": "The Stream of the Blue Moon",
+      "description": "",
+      "category": "nature",
+      "categoryName": "Nature",
+      "tags": [],
+      "imagePath": "/uploads/wallpapers/cPcq3WlGrDy-.png",
+      "thumbPath": "/uploads/thumbs/cPcq3WlGrDy-.webp",
+      "blurDataURL": "data:image/webp;base64,UklGRqIBAABXRUJQVlA4IJYBAADQCQCdASogAEUAPuFeq02opSSiMzgMARAcCWQAsR/LBgA7hfiImdyxEy0fLRWPyxjVzPJcv4CM/W0l2JUK8FpM7E8Az5eY/9FMJXGKNoHlwaynNB5lSAAA/vaInglEAsGXSYHLQo3G/dtvcWYv/NMD7ulLJSd1CTyR8rWwyeHXXiUkKE0wcQ5PUuPZUmgRs7P5EBOJQ2S2mXz7boaNDLThdEuVJ/aQRhu1Th3DC9lg3Fn44j+iPT6zWoZgmgomDXFvlj/CFvuJhgSsjHPnRFPUnNpeAAXLHZpGL43E4r9ao6Woh40BGyEv2nq/9mC4wgGmukVowSwQMdD++zgdQMLiT8YNBSUF3gvc3PMxwlT7owq6B9L3WmLN/CRAGBWfmSQYTPRQaTTQ0XdL7clvGJJnfcot4gTGRY2o28Xh6oMxq8lG3oLDETnmWJiSV2mSplPQoQciUsrrBWFSVQ08kJBAQ2rsOxusPtAreLTuB8wmiFYP32svxCSOlLJfdiArmQ1nIHIGnZTQLZPpRiTsAVYM/OXcUAAA",
+      "width": 853,
+      "height": 1844,
+      "mimeType": "image/png",
+      "fileSize": 2616902,
+      "likes": 0,
+      "downloads": 0,
+      "shares": 0,
+      "views": 0,
+      "createdAt": 1778952817614
+    },
+    {
+      "id": "mCGERrQlGbxv",
+      "slug": "whispers-of-the-blue-moon-forest-aadz_w",
+      "title": "Whispers of the Blue Moon Forest",
+      "description": "",
+      "category": "nature",
+      "categoryName": "Nature",
+      "tags": [],
+      "imagePath": "/uploads/wallpapers/mCGERrQlGbxv.png",
+      "thumbPath": "/uploads/thumbs/mCGERrQlGbxv.webp",
+      "blurDataURL": "data:image/webp;base64,UklGRpwBAABXRUJQVlA4IJABAADwCQCdASogAEUAPt1knk2opiKiNnbaqRAbiWQAwf/K/kw8sbUjAD2bkrN1t2yNgatb1hwy4D/yhDlxSR8tqoL36qCgLbsDzokuPTDicu9WXcl1JnCFUbvQAP70Jd+PRCrt1WK2zni6X9R95XpRp6z4I+zntgeRJBZyKxIy1uxtlFtHq4hdJHbOd3W7o+UHQo2WO+OYQmr0ks+UI9rpbROSVbrnqfQC6or/1E0R0wFf1Km+aywWExhlZfML9W+M/aM4yHgezD5hJLaHvbW9Dle8MqLbcwk36Nlfn6o72Xm1I+YNMyHIhuRrCsxNcbhkyhCwS6WzMyElP7DZ603G0oc31G1T6PtwaQs6j55+I9cnbn3I/U+dIk9qWYdiIFErIm+ASbaf9lAbYRBstPy588doF4+riz5HlQgSDHNU2Ci8oF+ho0hdJxC5Xidf7YixjbVoWTiWSYm8LNdCYQjJzY7gD6T75WgOM34q16JWA0rMiS9E9gpFaLJJ18aSShZCRyIxT1fP5TAF27Pi7HIZAAAA",
+      "width": 853,
+      "height": 1844,
+      "mimeType": "image/png",
+      "fileSize": 2554791,
+      "likes": 0,
+      "downloads": 0,
+      "shares": 0,
+      "views": 1,
+      "createdAt": 1778952571952
+    },
+    {
+      "id": "fa60RA-eXg79",
+      "slug": "the-stream-of-the-blue-moon-b3vck_",
+      "title": "The Stream of the Blue Moon",
+      "description": "A lone ronin follows the glowing stream through a misty forest, his path lit by floating spirits and the soft glow of a blue moon. A peaceful yet mysterious journey through the heart of fantasy. Perfect for your aesthetic boards and wallpaper collection. 🌙🌲✨ #ronin #darkfantasy",
+      "category": "warrior",
+      "categoryName": "Warrior",
+      "tags": [],
+      "imagePath": "/uploads/wallpapers/fa60RA-eXg79.jpg",
+      "thumbPath": "/uploads/thumbs/fa60RA-eXg79.webp",
+      "blurDataURL": "data:image/webp;base64,UklGRpABAABXRUJQVlA4IIQBAADwCACdASogADgAPuFWqE2opKQiM/zKqRAcCUAVJPOw5gzBtvrseNZsODXn9FmlqKohE/6AvX722JvTlVCTuafd+VtutFYYJ6lukyngFpJUAAD+7KbvpeUzYMuud5rxjVkUdB2XHYw+tSvLS8t27+YAyeQxHAZJ719gavukNs+3wVqIyIyj0fMOLADW7gEZKLRZHIRj1qV6j4gByJmEiYCt/XRaworv8Pkh+k3tMhibr6oz1zJV7KqSMmfuELt3uc/6zJf7i19aWE3CWtionuPPoGEcfGX7N2oMloaHguM2z1RGcj+Ve2APbUioeTenhJR1gHY8N3rpaE6Vg0wbYSKRxv2Wmry0WaEE1jA/vfFMlsW9yYSw/+lgTENRmw2Wl9GeJe36gBTVp/ovUxD2HzLYXXr9moIPbvEggYKirRQU9v63CC64wSnUZkExft6w91qToVrwGceZfaQLUygAltirK2lRI0xIvmAO090WJu2Dxmrz2k5QA1NCSJpm5KYqOxpmjAAA",
+      "width": 896,
+      "height": 1576,
+      "mimeType": "image/jpeg",
+      "fileSize": 1091153,
+      "likes": 0,
+      "downloads": 0,
+      "shares": 0,
+      "views": 0,
+      "createdAt": 1778952286347
+    },
+    {
       "id": "L3D8qT1lID0Q",
       "slug": "chatgpt-image-may-14-2026-11-24-15-pm-yah4ta",
       "title": "ChatGPT Image May 14, 2026, 11 24 15 PM",
@@ -18,7 +81,7 @@
       "likes": 3,
       "downloads": 1,
       "shares": 1,
-      "views": 13,
+      "views": 14,
       "createdAt": 1778792298042
     }
   ],
@@ -26,6 +89,10 @@
     {
       "slug": "nature",
       "name": "Nature"
+    },
+    {
+      "slug": "warrior",
+      "name": "Warrior"
     }
   ]
 }
