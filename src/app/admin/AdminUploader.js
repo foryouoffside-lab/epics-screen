@@ -6,9 +6,6 @@ export default function AdminUploader() {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("nature");
-  const [tags, setTags] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [msg, setMsg] = useState(null);
@@ -42,9 +39,6 @@ export default function AdminUploader() {
     const fd = new FormData();
     fd.append("file", file);
     fd.append("title", title.trim());
-    fd.append("description", description.trim());
-    fd.append("category", category.trim().toLowerCase());
-    fd.append("tags", tags);
     fd.append("password", password);
 
     try {
@@ -55,8 +49,6 @@ export default function AdminUploader() {
       setFile(null);
       setPreview(null);
       setTitle("");
-      setDescription("");
-      setTags("");
     } catch (err) {
       setMsg({ type: "err", text: err.message });
     } finally {
@@ -75,7 +67,7 @@ export default function AdminUploader() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter the ADMIN_UPLOAD_PASSWORD from your .env"
+          placeholder="Enter the admin password"
           autoComplete="current-password"
           required
         />
@@ -110,38 +102,6 @@ export default function AdminUploader() {
       <div className="field" style={{ marginTop: 16 }}>
         <label htmlFor="t">Title</label>
         <input id="t" value={title} onChange={(e) => setTitle(e.target.value)} required maxLength={120} />
-      </div>
-
-      <div className="field">
-        <label htmlFor="d">Description (SEO)</label>
-        <textarea
-          id="d"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          maxLength={400}
-          placeholder="Write 1-2 sentences describing the wallpaper — used for meta description."
-        />
-      </div>
-
-      <div className="field">
-        <label htmlFor="c">Category</label>
-        <input
-          id="c"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          placeholder="e.g. nature, abstract, minimal, anime"
-          required
-        />
-      </div>
-
-      <div className="field">
-        <label htmlFor="tg">Tags (comma separated)</label>
-        <input
-          id="tg"
-          value={tags}
-          onChange={(e) => setTags(e.target.value)}
-          placeholder="e.g. mountains, sunset, 4k, landscape"
-        />
       </div>
 
       <button type="submit" className="btn btn--primary" disabled={submitting} style={{ width: "100%", justifyContent: "center" }}>

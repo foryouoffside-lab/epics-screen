@@ -12,7 +12,6 @@ export default function Footer() {
         <nav aria-label="Footer navigation" style={{ marginTop: 8 }}>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href="/sitemap.xml">Sitemap</Link>
         </nav>
         <p style={{ marginTop: 16 }}>
           <a

@@ -56,7 +56,10 @@ export default function WallpaperActions({ wallpaper }) {
     } catch {}
     const a = document.createElement("a");
     a.href = imagePath;
-    a.download = `${slug}${imagePath.substring(imagePath.lastIndexOf("."))}`;
+    // Use the wallpaper title as the download filename
+    const ext = imagePath.substring(imagePath.lastIndexOf("."));
+    const cleanTitle = title.replace(/[^a-zA-Z0-9 ]/g, "").trim() || slug;
+    a.download = cleanTitle + ext;
     document.body.appendChild(a);
     a.click();
     a.remove();

@@ -15,10 +15,10 @@
       "height": 1844,
       "mimeType": "image/png",
       "fileSize": 2616902,
-      "likes": 0,
-      "downloads": 0,
+      "likes": 1,
+      "downloads": 1,
       "shares": 0,
-      "views": 0,
+      "views": 3,
       "createdAt": 1778952817614
     },
     {
@@ -39,7 +39,7 @@
       "likes": 0,
       "downloads": 0,
       "shares": 0,
-      "views": 1,
+      "views": 3,
       "createdAt": 1778952571952
     },
     {
@@ -81,7 +81,7 @@
       "likes": 3,
       "downloads": 1,
       "shares": 1,
-      "views": 14,
+      "views": 15,
       "createdAt": 1778792298042
     }
   ],

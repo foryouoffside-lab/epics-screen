@@ -2,7 +2,7 @@ import Script from "next/script";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getWallpaperBySlug, getRelatedWallpapers, incrementStat } from "@/lib/db";
+import { getWallpaperBySlug, getAllWallpapers, incrementStat } from "@/lib/db";
 import { buildMetadata, wallpaperJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import WallpaperActions from "@/components/WallpaperActions";
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
   const tags = w.tags || [];
   return buildMetadata({
     title: `${w.title} — Free HD & 4K Wallpaper Download`,
-    description: w.description || `Download ${w.title} in HD & 4K for phone and desktop. Free warrior wallpaper from Epic's Screen. ${tags.length ? `Tags: ${tags.join(", ")}.` : ""}`,
+    description: w.description || `Download ${w.title} in HD & 4K for phone and desktop. Free warrior wallpaper from Epic's Screen.`,
     path: `/wallpaper/${w.slug}`,
     image: absoluteUrl(w.imagePath),
     type: "article",
@@ -32,7 +32,9 @@ export default async function WallpaperPage({ params }) {
 
   incrementStat(wallpaper.id, "views", 1).catch(() => {});
 
-  const related = await getRelatedWallpapers(wallpaper, 10);
+  // Get all wallpapers except current one for "More Warrior Wallpapers"
+  const allWallpapers = await getAllWallpapers();
+  const moreWallpapers = allWallpapers.filter(w => w.id !== wallpaper.id);
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
@@ -84,9 +86,6 @@ export default async function WallpaperPage({ params }) {
             sizes="(max-width: 980px) 100vw, 70vw"
             itemProp="contentUrl"
           />
-          <meta itemProp="width" content={wallpaper.width || 1920} />
-          <meta itemProp="height" content={wallpaper.height || 1080} />
-          <meta itemProp="encodingFormat" content={wallpaper.mimeType || "image/png"} />
         </div>
 
         <aside className="detail__side">
@@ -97,7 +96,6 @@ export default async function WallpaperPage({ params }) {
           <p className="detail__meta">
             {wallpaper.width} × {wallpaper.height} •{" "}
             {(wallpaper.fileSize / 1024 / 1024).toFixed(2)} MB
-            <meta itemProp="contentSize" content={`${(wallpaper.fileSize / 1024 / 1024).toFixed(2)} MB`} />
           </p>
           {wallpaper.tags && wallpaper.tags.length > 0 && (
             <div className="detail__tags" aria-label="Tags">
@@ -106,18 +104,16 @@ export default async function WallpaperPage({ params }) {
               ))}
             </div>
           )}
-          <meta itemProp="datePublished" content={new Date(wallpaper.createdAt).toISOString()} />
-          <meta itemProp="thumbnailUrl" content={absoluteUrl(wallpaper.thumbPath)} />
           <WallpaperActions wallpaper={wallpaper} />
         </aside>
       </article>
 
-      {related.length > 0 && (
+      {moreWallpapers.length > 0 && (
         <section className="container" aria-labelledby="related-h">
           <div className="section-h">
             <h2 id="related-h">More Warrior Wallpapers</h2>
           </div>
-          <WallpaperGrid wallpapers={related} />
+          <WallpaperGrid wallpapers={moreWallpapers} />
         </section>
       )}
     </>

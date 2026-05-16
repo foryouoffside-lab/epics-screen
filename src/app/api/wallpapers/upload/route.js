@@ -26,11 +26,6 @@ export async function POST(req) {
     const title = (form.get("title") || "").toString().trim();
     if (!title) return NextResponse.json({ error: "Title required" }, { status: 400 });
 
-    const description = (form.get("description") || "").toString().trim();
-    const category = (form.get("category") || "uncategorized").toString().trim().toLowerCase() || "uncategorized";
-    const tagsRaw = (form.get("tags") || "").toString();
-    const tags = tagsRaw.split(",").map((t) => t.trim().toLowerCase()).filter(Boolean);
-
     const arrayBuf = await file.arrayBuffer();
     const buf = Buffer.from(arrayBuf);
     if (buf.length > 20 * 1024 * 1024) {
@@ -48,10 +43,10 @@ export async function POST(req) {
       id,
       slug,
       title,
-      description,
-      category,
-      categoryName: category.replace(/\b\w/g, (m) => m.toUpperCase()),
-      tags,
+      description: "",
+      category: "warrior",
+      categoryName: "Warrior",
+      tags: ["warrior", "hd wallpaper", "4k wallpaper"],
       imagePath: processed.imagePath,
       thumbPath: processed.thumbPath,
       blurDataURL: processed.blurDataURL,
