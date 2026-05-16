@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Epic's Screen",
   shortName: "Epic's Screen",
   description:
-    "Download free HD & 4K warrior wallpapers for phone and desktop. Epic's Screen offers a curated collection of battle-ready, samurai, viking, and Spartan warrior backgrounds. New wallpapers weekly.",
+    "",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ogImage: "/og-default.png",
   locale: "en_US",

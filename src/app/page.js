@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Warrior Wallpapers HD & 4K — Free Phone & Desktop Backgrounds",
-  description: "Download free warrior wallpapers in HD & 4K for phone and desktop. Epic's Screen curates battle, samurai, viking & spartan backgrounds. New wallpapers added weekly.",
+  description: " ",
   path: "/",
   keywords: ["warrior wallpapers", "warrior phone wallpaper", "warrior HD", "samurai wallpaper", "viking wallpaper", "spartan wallpaper"]
 });
@@ -28,10 +28,7 @@ export default async function HomePage() {
       <section className="hero" aria-labelledby="hero-h">
         <div className="container">
           <h1 id="hero-h">Warrior Wallpapers</h1>
-          <p>
-            Download free HD &amp; 4K warrior wallpapers for your phone and desktop.
-            Curated collection of battle-ready backgrounds — samurai, viking, spartan &amp; more.
-          </p>
+          
         </div>
       </section>
 
